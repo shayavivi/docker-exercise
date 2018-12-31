@@ -1,5 +1,6 @@
 # docker-exercise
-
+the project calculate multiplication of numbers with the usage of rest api.
+in addition some files have been added to construct a container in docker to this project
 **requirements:**
 
 docker and git installed.
