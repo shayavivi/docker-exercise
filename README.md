@@ -7,9 +7,10 @@ docker and git installed.
 **guide**
 
 open your cmd write.
+```
+cd C:\
 
-`cd C:\`
+git clone https://github.com/shayavivi/docker-exercise.git
 
-`git clone https://github.com/shayavivi/docker-exercise.git`
-
-`cd docker-exercise`
+cd docker-exercise
+```
