@@ -3,7 +3,7 @@ from celery import Celery
 
 from model import Session, ClientData
 
-app = Celery('tasks', broker='amqp://' + os.environ.get('USER', 'admin') + ':' + os.environ.get('PASS', 'mypass') + '@' + os.environ.get('HOSTNAME', 'rabbit') + ':' + os.environ.get('PORT', '5672'))  # create celery worker server, broker is RabbitMQ
+app = Celery('tasks', broker='amqp://{0}:{1}@{2}:{3}'.format(os.environ.get('USER', 'admin'), os.environ.get('PASS', 'mypass'), os.environ.get('HOSTNAME', 'localhost'), os.environ.get('PORT', '5672'))  # create celery worker server, broker is RabbitMQ
 
 
 @app.task
