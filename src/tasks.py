@@ -3,7 +3,12 @@ from celery import Celery
 
 from model import Session, ClientData
 
-app = Celery('tasks', broker='amqp://{0}:{1}@{2}:{3}'.format(os.environ.get('USER', 'admin'),os.environ.get('PASS', 'mypass'),os.environ.get('HOSTNAME', 'rabbit'), os.environ.get('PORT', '5672')))  # create celery worker server, broker is RabbitMQ
+if 'USER' in os.environ and 'PASS' in os.environ and 'HOSTNAME' in os.environ and 'PORT' in os.environ:
+    BROKER_URI = 'amqp://{0}:{1}@{2}:{3}'.format(os.environ['USER'], os.environ['PASS'], os.environ['HOSTNAME'], os.environ['PORT'])
+else:
+    BROKER_URI = 'amqp://localhost://'
+
+app = Celery('tasks', broker=BROKER_URI)  # create celery worker server, broker is RabbitMQ
 
 
 @app.task
