@@ -9,7 +9,7 @@ docker and git installed.
 
 open your cmd write.
 ```
-cd C:\
 git clone https://github.com/shayavivi/docker-exercise.git
 cd docker-exercise
+docker-compose up
 ```
